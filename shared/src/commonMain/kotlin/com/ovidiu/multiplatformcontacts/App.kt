@@ -1,4 +1,4 @@
-package com.ovidiu.multiplatformcontacts.app
+package com.ovidiu.multiplatformcontacts
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
