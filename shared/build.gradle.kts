@@ -99,6 +99,13 @@ android {
     }
 }
 
+sqldelight {
+    database("ContactDatabase") {
+        packageName = "com.ovidiu.multiplatformcontacts.database"
+        sourceFolders = listOf("sqldelight")
+    }
+}
+
 dependencies {
     implementation("androidx.core:core:1.10.1")
 }
