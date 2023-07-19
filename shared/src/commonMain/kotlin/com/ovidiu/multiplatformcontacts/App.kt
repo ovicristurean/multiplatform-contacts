@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import com.ovidiu.multiplatformcontacts.contacts.presentation.ContactListScreen
 import com.ovidiu.multiplatformcontacts.contacts.presentation.ContactListViewModel
 import com.ovidiu.multiplatformcontacts.core.presentation.ContactsTheme
+import com.ovidiu.multiplatformcontacts.di.AppModule
 import dev.icerock.moko.mvvm.compose.getViewModel
 import dev.icerock.moko.mvvm.compose.viewModelFactory
 
@@ -17,6 +18,7 @@ import dev.icerock.moko.mvvm.compose.viewModelFactory
 fun App(
     darkTheme: Boolean,
     dynamicColor: Boolean,
+    appModule: AppModule,
 ) {
     ContactsTheme(
         darkTheme = darkTheme,
@@ -25,7 +27,7 @@ fun App(
         val viewModel = getViewModel(
             key = "contact-list-screen",
             factory = viewModelFactory {
-                ContactListViewModel()
+                ContactListViewModel(appModule.contactDataSource)
             }
         )
         val state by viewModel.state.collectAsState()

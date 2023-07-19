@@ -32,7 +32,7 @@ sealed interface ContactsListEvent {
 
     data class SelectContact(val contact: Contact) : ContactsListEvent
 
-    data class EditContacct(val contact: Contact) : ContactsListEvent
+    data class EditContact(val contact: Contact) : ContactsListEvent
 
     object DeleteContact : ContactsListEvent
 }
