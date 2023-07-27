@@ -44,10 +44,6 @@ kotlin {
                 implementation("com.squareup.sqldelight:runtime:1.5.5")
                 implementation("com.squareup.sqldelight:coroutines-extensions:1.5.5")
                 implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
-                implementation("dev.icerock.moko:mvvm-core:0.16.1")
-                implementation("dev.icerock.moko:mvvm-compose:0.16.1")
-                implementation("dev.icerock.moko:mvvm-flow:0.16.1")
-                implementation("dev.icerock.moko:mvvm-flow-compose:0.16.1")
             }
         }
         val commonTest by getting {
@@ -108,4 +104,8 @@ sqldelight {
 
 dependencies {
     implementation("androidx.core:core:1.10.1")
+    commonMainApi("dev.icerock.moko:mvvm-core:0.16.1")
+    commonMainApi("dev.icerock.moko:mvvm-compose:0.16.1")
+    commonMainApi("dev.icerock.moko:mvvm-flow:0.16.1")
+    commonMainApi("dev.icerock.moko:mvvm-flow-compose:0.16.1")
 }

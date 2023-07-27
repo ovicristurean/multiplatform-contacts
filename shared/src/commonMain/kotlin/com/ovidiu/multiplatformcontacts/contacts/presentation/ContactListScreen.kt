@@ -23,14 +23,19 @@ import androidx.compose.ui.unit.dp
 import com.ovidiu.multiplatformcontacts.contacts.domain.Contact
 import com.ovidiu.multiplatformcontacts.contacts.presentation.components.AddContactSheet
 import com.ovidiu.multiplatformcontacts.contacts.presentation.components.ContactListItem
+import com.ovidiu.multiplatformcontacts.core.presentation.ImagePicker
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ContactListScreen(
     state: ContactListState,
     newContact: Contact?,
+    imagePicker: ImagePicker,
     onEvent: (ContactsListEvent) -> Unit,
 ) {
+    imagePicker.registerPicker { imageBytes ->
+        onEvent(ContactsListEvent.OnPhotoPicked(imageBytes))
+    }
     Scaffold(
         floatingActionButton = {
             FloatingActionButton(
@@ -77,6 +82,11 @@ fun ContactListScreen(
         state = state,
         newContact = newContact,
         isOpen = state.isAddContactSheetOpen,
-        onEvent = onEvent,
+        onEvent = { event ->
+            if (event is ContactsListEvent.OnAddPhotoClicked) {
+                imagePicker.pickImage()
+            }
+            onEvent(event)
+        },
     )
 }

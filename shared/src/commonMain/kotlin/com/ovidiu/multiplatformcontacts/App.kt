@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import com.ovidiu.multiplatformcontacts.contacts.presentation.ContactListScreen
 import com.ovidiu.multiplatformcontacts.contacts.presentation.ContactListViewModel
 import com.ovidiu.multiplatformcontacts.core.presentation.ContactsTheme
+import com.ovidiu.multiplatformcontacts.core.presentation.ImagePicker
 import com.ovidiu.multiplatformcontacts.di.AppModule
 import dev.icerock.moko.mvvm.compose.getViewModel
 import dev.icerock.moko.mvvm.compose.viewModelFactory
@@ -19,6 +20,7 @@ fun App(
     darkTheme: Boolean,
     dynamicColor: Boolean,
     appModule: AppModule,
+    imagePicker: ImagePicker
 ) {
     ContactsTheme(
         darkTheme = darkTheme,
@@ -38,6 +40,7 @@ fun App(
             ContactListScreen(
                 state = state,
                 newContact = viewModel.newContact,
+                imagePicker = imagePicker,
                 onEvent = viewModel::onEvent
             )
         }

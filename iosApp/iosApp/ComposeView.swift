@@ -2,7 +2,7 @@
 //  ComposeView.swift
 //  iosApp
 //
-//  Created by Ovidiu Cristurean on 15.07.2023.
+//  Created by Ovidiu Cristurean on 27.07.2023.
 //  Copyright © 2023 orgName. All rights reserved.
 //
 
@@ -19,3 +19,4 @@ struct ComposeView: UIViewControllerRepresentable {
         MainViewControllerKt.MainViewController()
     }
 }
+

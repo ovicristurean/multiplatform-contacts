@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import com.ovidiu.multiplatformcontacts.App
+import com.ovidiu.multiplatformcontacts.core.presentation.ImagePickerFactory
 import com.ovidiu.multiplatformcontacts.di.AppModule
 
 class MainActivity : ComponentActivity() {
@@ -19,6 +20,7 @@ class MainActivity : ComponentActivity() {
                 darkTheme = isSystemInDarkTheme(),
                 dynamicColor = true,
                 appModule = AppModule(LocalContext.current.applicationContext),
+                imagePicker = ImagePickerFactory().createPicker(),
             )
         }
     }
