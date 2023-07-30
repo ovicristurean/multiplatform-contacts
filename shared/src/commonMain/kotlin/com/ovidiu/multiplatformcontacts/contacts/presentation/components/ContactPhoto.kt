@@ -31,7 +31,7 @@ fun ContactPhoto(
         Image(
             bitmap = bitmap,
             contentDescription = contact?.firstName,
-            modifier = Modifier,
+            modifier = photoModifier,
             contentScale = ContentScale.Crop,
         )
     } else {

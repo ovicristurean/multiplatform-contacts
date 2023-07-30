@@ -24,6 +24,8 @@ import com.ovidiu.multiplatformcontacts.contacts.domain.Contact
 import com.ovidiu.multiplatformcontacts.contacts.presentation.components.AddContactSheet
 import com.ovidiu.multiplatformcontacts.contacts.presentation.components.ContactListItem
 import com.ovidiu.multiplatformcontacts.core.presentation.ImagePicker
+import com.ovidiu.multiplatformcontacts.core.presentation.components.ContactDetailSheet
+import com.ovidiu.multiplatformcontacts.core.presentation.components.RecentlyAddedContacts
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -57,6 +59,14 @@ fun ContactListScreen(
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             item {
+                RecentlyAddedContacts(
+                    contacts = state.recentlyAddedContacts,
+                    onClick = {
+                        onEvent(ContactsListEvent.SelectContact(it))
+                    }
+                )
+            }
+            item {
                 Text(
                     text = "My contacts ${state.contacts.size}",
                     modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
@@ -77,6 +87,12 @@ fun ContactListScreen(
             }
         }
     }
+
+    ContactDetailSheet(
+        isOpen = state.isSelectedContactSheetOpen,
+        selectedContact = state.selectedContact,
+        onEvent = onEvent,
+    )
 
     AddContactSheet(
         state = state,
